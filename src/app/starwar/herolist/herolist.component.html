@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Eye color</th>
+        <th>Mass</th>
+        <th>Height</th>
+        <th>Homeworld</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hero of herolist">
+            <td>{{hero.name}}</td>
+            <td>{{hero.gender}}</td>
+            <td>{{hero.eye_color}}</td>
+            <td>{{hero.mass}}</td>
+            <td>{{hero.height}}</td>
+            <td>{{hero.homeworld}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,70 @@
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Category</th>
+        <th>UI developer</th>
+        <th>Grade</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.category}}</td>
+            <td>{{emp.isUIDeveloper}}</td>
+            <td>{{emp.grade}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br><hr><br>
+
+Template driven
+
+<form #userForm="ngForm">
+    <div>
+        Name: <input type="text" name="userName" [(ngModel)]="employee.name" #name="ngModel" required/>
+        <label *ngIf="name.touched && name.errors?.['required']">Name is required</label>
+    </div>
+    <div>
+        Age: <input type="text" name="age" [(ngModel)]="employee.age" #age="ngModel">
+        <label *ngIf="age.touched && age.errors?.['required']">Age is required</label>
+    </div>
+    <div>
+        Gender: <input type="radio" name="gender" value="m" [(ngModel)]="employee.gender"/> Male
+        <input type="radio" name="gender" value="f" [(ngModel)]="employee.gender"/> Female
+        <input type="radio" name="gender" value="t" [(ngModel)]="employee.gender"/> Transgender
+    </div>
+    <div>
+        Is UI Devloper <input name="ui" type="checkbox" [(ngModel)]="employee.isUIDeveloper"/>
+    </div>
+    <div>
+        <select name="grade" [(ngModel)]="employee.grade">
+            <option *ngFor="let grade of gradeList" [value]="grade.grade">{{grade.description}}</option>
+        </select>
+    </div>
+    <button [disabled]="!userForm.valid" (click)="handleUser()">Submit</button>
+</form>
+
+<h5>ngSwitch example</h5>
+Selected Grade:
+<div [ngSwitch]="employee.grade">
+    <label *ngSwitchCase="'L1'">Grade L1</label>
+    <label *ngSwitchCase="'L2'">Grade L2</label>
+    <label *ngSwitchDefault>Grade L3</label>
+</div>
+
+<br><hr><br>
+
+Reactive form
+
+<form [formGroup]="userform">
+    <div>
+        <input name="uName" formControlName="userName"/>
+        <label *ngIf="userform.get('userName')?.hasError('required') && userform.get('userName')?.touched
+        && !userform.get('userName')?.pristine">User Name is required</label>
+    </div>
+    
+</form>

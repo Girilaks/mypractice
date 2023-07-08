@@ -1,0 +1,32 @@
+<div class="login">
+    <form #login="ngForm">
+        <table>
+            <tr>
+                <td>
+                    User name:
+                </td>
+                <td>
+                    <input type="text" name="userName" #name="ngModel" [(ngModel)]="loginForm.userName" required />
+                    <label *ngIf="name.touched && !name.pristine && name.errors?.['required']">
+                        User name is required
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="password" name="password" #pass="ngModel" [(ngModel)]="loginForm.password" required />
+                    <label *ngIf="pass.touched && !pass.pristine && pass.errors?.['required']">
+                        Password is required
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <input *ngIf="false" type="number" step="5" min="5" max="15" [(ngModel)]="stepValue"/>
+        <div class="button-right">
+            <button (click)="handleLogin()">Login</button>
+        </div>
+    </form>
+</div>
