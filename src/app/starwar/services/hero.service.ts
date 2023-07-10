@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError, map } from 'rxjs';
+import { Observable, catchError, throwError, map, Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IHero } from '../model/IHero'
 
@@ -8,14 +8,13 @@ import { IHero } from '../model/IHero'
 })
 export class HeroService {
 
+  _selectedHero: Subject<any> = new Subject<any>();
+  //public selectedHero = this._selectedHero.asObservable();
+
+
   constructor(private http: HttpClient) { }
 
   getSuperHeroList() : Observable<IHero[]> {
-    // this.http.get('https://swapi.dev/api/people').subscribe(data => {
-    //   console.log(data);
-    // }, error => {
-      
-    // })
 
     return this.http.get<IHero[]>('https://swapi.dev/api/people')
     .pipe(
@@ -24,10 +23,14 @@ export class HeroService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    
-    //return Observable.throw(error.message || 'Server error')
     return throwError(() => new Error(error.message || "Server error"));
+  }
 
-    //return throwError(error || "Server")
+  setCurrentHero(hero: any) {
+   this._selectedHero.next(hero);
+  }
+
+  getCurrentHero(): Observable<any> {
+    return this._selectedHero;
   }
 }

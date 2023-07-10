@@ -1,0 +1,28 @@
+input[type="text"]{
+    height: 35px;
+    width: 215px;
+    border-radius: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+select {
+    height: 35px;
+    width: 215px;
+}
+
+.label-wd {
+    width: 100px;
+    display: inline-block;
+}
+
+.center-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.m-top {
+    margin-top: 15px;
+}

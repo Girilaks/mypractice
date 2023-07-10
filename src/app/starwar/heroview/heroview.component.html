@@ -1,0 +1,39 @@
+<form [formGroup]="heroForm" class="center-align">
+    <div>
+        <div>
+            <label class="label-wd">Name</label>
+            <input type="text" formControlName="name" name="heroName" />
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Gender</label>
+            <input type="radio" value="male" formControlName="gender"/> Male
+            <input type="radio" value="female" formControlName="gender"/> Female
+            <input type="radio" value="n/a" formControlName="gender"/> N / A
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Eye color</label>
+            <input type="text" formControlName="eye_color" name="eyeColor" />
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Mass</label>
+            <input type="text" formControlName="mass" name="mass" />
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Height</label>
+            <input type="text" formControlName="height" name="height" />
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Skin color</label>
+            <input type="text" formControlName="skin_color" name="skin_color" />
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Films</label>
+            <select>
+                <option *ngFor="let film of films"> {{film}}</option>
+            </select>
+        </div>
+        <div class="m-top">
+            <button (click)="submit()">{{isNew ? "Add Hero" : "UpdateHero"}}</button>
+        </div>
+    </div>
+</form>

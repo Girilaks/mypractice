@@ -1,3 +1,6 @@
+<div>
+    <button (click)="createHero()">New Hero</button>
+</div>
 <table>
     <thead>
         <th>Name</th>
@@ -15,6 +18,11 @@
             <td>{{hero.mass}}</td>
             <td>{{hero.height}}</td>
             <td>{{hero.homeworld}}</td>
+            <td>
+                <button (click)="editHero(hero)"> 
+                    Edit
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
