@@ -14,7 +14,10 @@
         <tr *ngFor="let hero of herolist">
             <td>{{hero.name}}</td>
             <td>{{hero.gender}}</td>
-            <td>{{hero.eye_color}}</td>
+            <!-- <td >{{hero.eye_color}}</td> -->
+            <td>
+                <div appeyecolor [value]="hero.eye_color">{{hero.eye_color}}</div>
+            </td>
             <td>{{hero.mass}}</td>
             <td>{{hero.height}}</td>
             <td>{{hero.homeworld}}</td>

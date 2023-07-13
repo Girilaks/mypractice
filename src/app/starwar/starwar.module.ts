@@ -5,11 +5,13 @@ import { starwarRoutingModule } from './starwar-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroviewComponent } from './heroview/heroview.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EyeColorDirective } from './directives/eye-color.directive';
 
 @NgModule({
   declarations: [
     HerolistComponent,
-    HeroviewComponent
+    HeroviewComponent,
+    EyeColorDirective
   ],
   imports: [
     CommonModule,

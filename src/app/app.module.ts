@@ -10,6 +10,7 @@ import { PromiseObservableComponent } from './promise-observable/promise-observa
 import { ObservableSubjectComponent } from './observable-subject/observable-subject.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     Practice1Component,
     PromiseObservableComponent,
     ObservableSubjectComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
