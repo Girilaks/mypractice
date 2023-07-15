@@ -28,6 +28,9 @@ export class LoginComponent {
     if(this.loginForm) {
       this.router.navigateByUrl('/heros')
     }
+
+    let user = JSON.stringify(this.loginForm)
+    localStorage.setItem('user', user);
     this.authService.login(this.loginForm);
   }
 }

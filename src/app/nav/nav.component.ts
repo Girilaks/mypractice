@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  constructor(){}
+
+  handleLogout() {
+    localStorage.removeItem('user');
+  }
 }

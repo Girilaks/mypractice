@@ -9,8 +9,9 @@ import { Practice1Component } from './practice1/practice1.component';
 import { PromiseObservableComponent } from './promise-observable/promise-observable.component';
 import { ObservableSubjectComponent } from './observable-subject/observable-subject.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
+import { AuthInterceptor } from './common/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { NavComponent } from './nav/nav.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
