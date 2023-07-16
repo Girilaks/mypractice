@@ -29,6 +29,7 @@ export class LoginComponent {
       this.router.navigateByUrl('/heros')
     }
 
+    this.authService.isAuthenticate$.next(true);
     let user = JSON.stringify(this.loginForm)
     localStorage.setItem('user', user);
     this.authService.login(this.loginForm);

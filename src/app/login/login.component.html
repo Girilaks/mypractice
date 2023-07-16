@@ -26,7 +26,7 @@
             <tr>
                 <td colspan="2">
                     <div class="button-right">
-                        <button (click)="handleLogin()">Login</button>
+                        <button [disabled]="!login.valid" (click)="handleLogin()">Login</button>
                     </div>
                 </td>
             </tr>

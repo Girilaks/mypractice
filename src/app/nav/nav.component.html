@@ -1,13 +1,13 @@
 <header>
+    {{isAuthenticate}}
     <nav>
         <a routerLink="/">StarWar Heroes</a>
         <div>
             <ul>
-                <li>
-                    <a>Login</a>
-                    <a>Register</a>
+                <li *ngIf="!isAuthenticate ; else authlinks">
+                    <a routerLink="/register" >Register</a>
                 </li>
-                <ng-template>
+                <ng-template #authlinks>
                     <li>
                         <a routerLink="/heros" routerLinkActive="">Super Heroes List</a>
                     </li>
@@ -15,7 +15,7 @@
                         <a routerLink="/heros/add" routerLinkActive="">New Super Hero</a>
                     </li>
                     <li>
-                        <a (click)="handleLogout()">Logout</a>
+                        <a class="logout" (click)="handleLogout()">Logout</a>
                     </li>
                 </ng-template>
             </ul>

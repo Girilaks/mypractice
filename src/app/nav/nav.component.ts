@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,16 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
-  constructor(){}
+  isAuthenticate = false;
+  constructor(private router: Router, private authService: AuthService){
+    authService.isAuthenticate$.subscribe(data => {
+      this.isAuthenticate = data;
+    })
+  }
 
   handleLogout() {
     localStorage.removeItem('user');
+    this.authService.isAuthenticate$.next(false);
+    this.router.navigateByUrl('/');
   }
 }
