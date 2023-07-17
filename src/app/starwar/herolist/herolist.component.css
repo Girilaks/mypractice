@@ -1,0 +1,21 @@
+.btn-new-hero {
+    width:100px;
+    height: 30px;
+    float: right;
+}
+
+tr, th {
+    height: 45px;
+}
+
+th {
+    background-color: #b1b0b0;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #f5f2f2;
+}

@@ -1,10 +1,11 @@
-<header>
-    {{isAuthenticate}}
-    <nav>
-        <a routerLink="/">StarWar Heroes</a>
-        <div>
+<header style="height: 60px">
+    <nav class="align-menu">
+        <div class="align-item-center">
+            <a class="starwar-header" routerLink="/">StarWar Heroes</a>
+        </div>
+        <div style="display: inline-block;">
             <ul>
-                <li *ngIf="!isAuthenticate ; else authlinks">
+                <li style="margin-right: 10px;" *ngIf="!isAuthenticate ; else authlinks">
                     <a routerLink="/register" >Register</a>
                 </li>
                 <ng-template #authlinks>
@@ -14,7 +15,7 @@
                     <li>
                         <a routerLink="/heros/add" routerLinkActive="">New Super Hero</a>
                     </li>
-                    <li>
+                    <li style="margin-right: 10px;">
                         <a class="logout" (click)="handleLogout()">Logout</a>
                     </li>
                 </ng-template>

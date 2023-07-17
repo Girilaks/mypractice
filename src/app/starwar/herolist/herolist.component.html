@@ -1,7 +1,7 @@
 <div>
-    <button (click)="createHero()">New Hero</button>
+    <button (click)="createHero()" class="btn-new-hero">New Hero</button>
 </div>
-<table>
+<table style="width:100%">
     <thead>
         <th>Name</th>
         <th>Gender</th>
@@ -9,6 +9,7 @@
         <th>Mass</th>
         <th>Height</th>
         <th>Homeworld</th>
+        <th>Edit Hero</th>
     </thead>
     <tbody>
         <tr *ngFor="let hero of herolist">

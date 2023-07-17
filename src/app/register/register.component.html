@@ -1,0 +1,91 @@
+<form [formGroup]="registerForm" (ngSubmit)="handleRegister()" class="center-align">
+    <div>
+        <div> 
+            <span class="label-wd">First name </span>
+            <input type="text" name="fName" formControlName="firstName" />
+            <div *ngIf="registerForm.get('firstName')?.touched &&
+            registerForm.get('firstName')?.dirty" class="error-msg">
+                <span *ngIf="registerForm.get('firstName')?.hasError('required')">
+                    First Name is required.
+                </span>
+                <span *ngIf="registerForm.get('firstName')?.hasError('minlength')">
+                    First name must be minimum of 3 letters.
+                </span>
+            </div>
+        </div>
+        <div class="m-top">
+            <span class="label-wd">Last name </span>
+            <input type="text" name="lName" formControlName="lastName" />
+            <div *ngIf="registerForm.get('lastName')?.touched &&
+            registerForm.get('lastName')?.dirty" class="error-msg">
+                <span *ngIf="registerForm.get('lastName')?.hasError('required')">
+                    Last Name is required.
+                </span>
+                <span *ngIf="registerForm.get('lastName')?.hasError('minlength')">
+                    Last Name must be minimum of 1 letter.
+                </span>
+            </div>
+        </div>
+        <div class="m-top">
+            <span  class="label-wd">User name </span>
+            <input type="text" name="uName" formControlName="userName" />
+            <div *ngIf="registerForm.get('userName')?.touched &&
+            registerForm.get('userName')?.dirty" class="error-msg">
+                <span *ngIf="registerForm.get('userName')?.hasError('required')">
+                    User Name is required.
+                </span>
+                <span *ngIf="registerForm.get('userName')?.hasError('minlength')">
+                    User Name must be minimum of 8 letters.
+                </span>
+                <span *ngIf="registerForm.get('userName')?.hasError('pattern')">
+                    Pattern mismatch - User name must be alphabets and numbers
+                </span>
+            </div>
+        </div>
+        <div class="m-top">
+            <span class="label-wd">Password </span>
+            <input type="password" name="pass" formControlName="password" />
+            <div *ngIf="registerForm.get('password')?.touched &&
+            registerForm.get('password')?.dirty" class="error-msg">
+                <span *ngIf="registerForm.get('password')?.hasError('required')">
+                    Password is required.
+                </span>
+                <span *ngIf="registerForm.get('password')?.hasError('minlength')">
+                    Password must be minimum of 8 letters.
+                </span>
+                <span *ngIf="registerForm.get('password')?.hasError('maxlength')">
+                    Password must be maximum of 15 letters.
+                </span>
+                <span *ngIf="registerForm.get('password')?.hasError('pattern')">
+                    Pattern mismatch - at least 8 characters
+                    - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+                    - Can contain special characters
+                </span>
+            </div>
+        </div>
+        <div class="m-top">
+            <span class="label-wd">Confirm password </span>
+            <input type="password" name="cPass" formControlName="confirmPassword" />
+            <div *ngIf="registerForm.get('confirmPassword')?.touched &&
+            registerForm.get('confirmPassword')?.dirty" class="error-msg">
+                <span *ngIf="registerForm.get('confirmPassword')?.hasError('required')">
+                    Confirm password is required.
+                </span>
+                <span *ngIf="registerForm.get('confirmPassword')?.hasError('minlength')">
+                    Confirm password must be minimum of 8 letters.
+                </span>
+                <span *ngIf="registerForm.get('confirmPassword')?.hasError('maxlength')">
+                    Confirm password must be maximum of 15 letters.
+                </span>
+                <span *ngIf="registerForm.get('confirmPassword')?.hasError('pattern')">
+                    Pattern mismatch - at least 8 characters
+                    - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+                    - Can contain special characters
+                </span>
+            </div>
+        </div>
+        <div class="m-top" style="float: right;">
+            <button [disabled]="!registerForm.valid" class="btn-submit" type="submit">Submit</button>
+        </div>
+    </div>
+</form>

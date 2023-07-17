@@ -2,3 +2,29 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.align-menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ddd;
+}
+
+.align-item-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.starwar-header {
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+}
