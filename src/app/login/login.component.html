@@ -6,7 +6,7 @@
                     User name:
                 </td>
                 <td>
-                    <input type="text" name="userName" #name="ngModel" [(ngModel)]="loginForm.userName" required />
+                    <input id="userName" type="text" name="userName" #name="ngModel" [(ngModel)]="loginForm.userName" required />
                     <label class="error-msg" *ngIf="name.touched && name.dirty && name.errors?.['required']">
                         User name is required
                     </label>
@@ -17,7 +17,7 @@
                     Password:
                 </td>
                 <td>
-                    <input type="password" name="password" #pass="ngModel" [(ngModel)]="loginForm.password" required />
+                    <input id="password" type="password" name="password" #pass="ngModel" [(ngModel)]="loginForm.password" required />
                     <label class="error-msg" *ngIf="pass.touched && pass.dirty && pass.errors?.['required']">
                         Password is required
                     </label>
@@ -26,7 +26,7 @@
             <tr>
                 <td colspan="2">
                     <div class="button-right">
-                        <button [disabled]="!login.valid" (click)="handleLogin()">Login</button>
+                        <button id="btnLogin" [disabled]="!login.valid" (click)="handleLogin()">Login</button>
                     </div>
                 </td>
             </tr>
