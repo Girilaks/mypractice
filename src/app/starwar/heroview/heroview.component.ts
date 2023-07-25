@@ -23,8 +23,10 @@ export class HeroviewComponent implements OnInit, AfterViewInit {
     homeworld: new FormControl('')
   })
 
-  films = [];
+  films: any = [];
   isNew: boolean = true;
+  successMessage = "Hero is saved successfully and available for new movies.";
+  isSaved = false;
 
   constructor(private heroService: HeroService, private router: Router) {
   }
@@ -33,6 +35,10 @@ export class HeroviewComponent implements OnInit, AfterViewInit {
     let url = this.router.url;
     this.isNew = url.indexOf('add') > -1 ? true : false;
 
+    if(this.isNew){
+      this.films = ['Film A', 'Film B', 'Film C'];
+      return;
+    }
     this.heroService.getCurrentHero().subscribe(data => {
       this.heroForm.controls["name"].setValue(data.name);
       this.heroForm.controls["gender"].setValue(data.gender);
@@ -51,6 +57,6 @@ export class HeroviewComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
-
+    this.isSaved = true;
   }
 }

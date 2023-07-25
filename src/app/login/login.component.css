@@ -54,3 +54,9 @@ input {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.form-center-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

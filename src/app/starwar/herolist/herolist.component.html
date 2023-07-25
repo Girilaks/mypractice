@@ -1,5 +1,5 @@
 <div>
-    <button (click)="createHero()" class="btn-new-hero">New Hero</button>
+    <button id="btnCreateHero" (click)="createHero()" class="btn-new-hero">New Hero</button>
 </div>
 <table style="width:100%">
     <thead>
@@ -21,9 +21,11 @@
             </td>
             <td>{{hero.mass}}</td>
             <td>{{hero.height}}</td>
-            <td>{{hero.homeworld}}</td>
             <td>
-                <button (click)="editHero(hero)"> 
+                <span title="View [{{hero.name}}] planet details" (click)="viewPlanetDetails(hero.homeworld)" style="cursor: pointer;">{{hero.homeworld}}</span>
+            </td>
+            <td>
+                <button style="display: flex; margin: auto;" (click)="editHero(hero)"> 
                     Edit
                 </button>
             </td>

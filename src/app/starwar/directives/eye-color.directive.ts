@@ -14,5 +14,10 @@ export class EyeColorDirective implements OnInit {
   ngOnInit(){
     let color = this.value;
     this.ele.nativeElement.style.backgroundColor = color;
+    if(color == 'blue-gray') {
+      this.ele.nativeElement.style.backgroundColor = '#6699CC';
+    }
+    this.ele.nativeElement.innerHTML =
+      this.value.charAt(0).toUpperCase() + this.value.slice(1);
   }
 }

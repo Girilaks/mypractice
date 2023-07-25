@@ -29,9 +29,14 @@ export class HerolistComponent implements OnInit{
   }
 
   editHero(hero: any) {
-    this.router.navigate([hero.name], { relativeTo: this.activatedRoute });
+    this.router.navigate(['edit/'+hero.name], { relativeTo: this.activatedRoute });
     setTimeout(() => {
       this.heroService.setCurrentHero(hero);
     }, 500);
+  }
+
+  viewPlanetDetails(planetUrl: string){
+    this.heroService.planetUrl = planetUrl;
+    this.router.navigate(['heros/planetdetails'])
   }
 }

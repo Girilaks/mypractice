@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeroviewComponent } from './heroview/heroview.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EyeColorDirective } from './directives/eye-color.directive';
+import { PlanetDetailsComponent } from './planet-details/planet-details.component';
 
 @NgModule({
   declarations: [
     HerolistComponent,
     HeroviewComponent,
-    EyeColorDirective
+    EyeColorDirective,
+    PlanetDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -10,6 +10,7 @@ export class HeroService {
 
   _selectedHero: Subject<any> = new Subject<any>();
   //public selectedHero = this._selectedHero.asObservable();
+  planetUrl: string = '';
 
 
   constructor(private http: HttpClient) { }
@@ -20,6 +21,15 @@ export class HeroService {
     .pipe(
       catchError(this.errorHandler)
       )
+  }
+
+  getPlanetDetails(planetUrl: string): Observable<any> {
+    console.log(planetUrl)
+    const url: string = planetUrl;
+    return this.http.get<any>(url)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
 
   errorHandler(error: HttpErrorResponse) {

@@ -1,39 +1,44 @@
 <form [formGroup]="heroForm" class="center-align">
+    <div *ngIf="isSaved" class="successMessage">
+        <span>
+            {{successMessage}}
+        </span>
+    </div>
     <div>
         <div>
             <label class="label-wd">Name</label>
-            <input type="text" formControlName="name" name="heroName" />
+            <input type="text" id="heroName" formControlName="name" name="heroName" />
         </div>
         <div class="m-top">
             <label class="label-wd">Gender</label>
-            <input type="radio" value="male" formControlName="gender"/> Male
-            <input type="radio" value="female" formControlName="gender"/> Female
-            <input type="radio" value="n/a" formControlName="gender"/> N / A
+            <input type="radio" id="genderMale" value="male" formControlName="gender"/> Male
+            <input type="radio" id="genderFemale" value="female" formControlName="gender"/> Female
+            <input type="radio" id="genderNA" value="n/a" formControlName="gender"/> N / A
         </div>
         <div class="m-top">
             <label class="label-wd">Eye color</label>
-            <input type="text" formControlName="eye_color" name="eyeColor" />
+            <input type="text" id="heroEyeColor" formControlName="eye_color" name="eyeColor" />
         </div>
         <div class="m-top">
             <label class="label-wd">Mass</label>
-            <input type="text" formControlName="mass" name="mass" />
+            <input type="text" id="heroMass" formControlName="mass" name="mass" />
         </div>
         <div class="m-top">
             <label class="label-wd">Height</label>
-            <input type="text" formControlName="height" name="height" />
+            <input type="text" id="heroHeight" formControlName="height" name="height" />
         </div>
         <div class="m-top">
             <label class="label-wd">Skin color</label>
-            <input type="text" formControlName="skin_color" name="skin_color" />
+            <input type="text" id="heroSkinColor" formControlName="skin_color" name="skin_color" />
         </div>
         <div class="m-top">
             <label class="label-wd">Films</label>
-            <select>
+            <select id="heroFilms">
                 <option *ngFor="let film of films"> {{film}}</option>
             </select>
         </div>
         <div class="m-top">
-            <button (click)="submit()">{{isNew ? "Add Hero" : "Update Hero"}}</button>
+            <button id="btnAddHero" (click)="submit()">{{isNew ? "Add Hero" : "Update Hero"}}</button>
         </div>
     </div>
 </form>
