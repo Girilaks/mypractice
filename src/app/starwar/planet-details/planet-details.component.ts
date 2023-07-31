@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { HeroService } from '../services/hero.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { formatCurrency } from '@angular/common';
 
 @Component({
   selector: 'app-planet-details',
@@ -10,6 +9,8 @@ import { formatCurrency } from '@angular/common';
   styleUrls: ['./planet-details.component.css']
 })
 export class PlanetDetailsComponent implements OnInit {
+
+  isEditMode: boolean = false;
 
   name = new FormControl('');
   climate = new FormControl('');
@@ -45,6 +46,10 @@ export class PlanetDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPlanetDetails();
+    this.activatedRoute.queryParams.subscribe(data => {
+      this.isEditMode = data['type'] == "edit" ? true: false;
+      console.log(this.isEditMode)
+    })
   }
 
   getPlanetDetails() {
@@ -61,7 +66,8 @@ export class PlanetDetailsComponent implements OnInit {
       this.planetDetails.controls['population'].setValue(data.population);
       this.planetDetails.controls['residents'].setValue(data.residents);
       this.planetDetails.controls['films'].setValue(data.films);
-      this.planetDetails.controls['created'].setValue(data.created);
+      //Assign only date to date field
+      this.planetDetails.controls['created'].setValue(new Date(data.created).toISOString().split('T')[0]);
       console.log(this.planetDetails);
     })
   }

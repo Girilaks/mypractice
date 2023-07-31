@@ -1,5 +1,90 @@
-<form [formGroup]="planetDetails">
-<div>
-    {{name.value}}
-</div>
+<form [formGroup]="planetDetails" class="center-align">
+    <div style="height: 100vh;">
+        <div>
+            <label class="label-wd">Name</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="planetName" type="text" formControlName="name" />
+                <span *ngIf="!isEditMode">{{name.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Climate</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pClimate" formControlName="climate" />
+                <span *ngIf="!isEditMode">{{climate.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Diameter</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pdiameter" formControlName="diameter" />
+                <span *ngIf="!isEditMode">{{diameter.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Gravity</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pgravity" formControlName="gravity" />
+                <span *ngIf="!isEditMode">{{gravity.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Orbital period</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pOrbitalPeriod" formControlName="orbital_period" />
+                <span *ngIf="!isEditMode">{{orbital_period.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Rotation period</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pRotationPeriod" formControlName="rotation_period" />
+                <span *ngIf="!isEditMode">{{rotation_period.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Surface water</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pSurfaceWater" formControlName="surface_water" />
+                <span *ngIf="!isEditMode">{{surface_water.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Terrain</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pTerrain" formControlName="terrain" />
+                <span *ngIf="!isEditMode">{{terrain.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Population</label>
+            <div class="pd-inline-block">
+                <input *ngIf="isEditMode" name="pPopulation" formControlName="population" />
+                <span *ngIf="!isEditMode">{{population.value}}</span>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Residents</label>
+            <div class="pd-inline-block">
+                <textarea class="pd-txt-area" *ngIf="isEditMode" name="pResidents" formControlName="residents">
+                </textarea>
+                <pre class="pd-large-text" *ngIf="!isEditMode && residents.value">{{residents.value | breakLongTextComma}}</pre>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Films</label>
+            <div class="pd-inline-block">
+                <textarea class="pd-txt-area" *ngIf="isEditMode" name="pFilms" formControlName="films">
+                </textarea>
+                <pre class="pd-large-text" *ngIf="!isEditMode && films.value">{{films.value | breakLongTextComma}}</pre>
+            </div>
+        </div>
+        <div class="m-top">
+            <label class="label-wd">Created</label>
+            <div class="pd-inline-block">
+                <input type="date" *ngIf="isEditMode" name="pCreated" formControlName="created" />
+                <span *ngIf="!isEditMode">{{created.value | date : "dd/MMM/yyyy"}}</span>
+            </div>
+        </div>
+    </div>
 </form>

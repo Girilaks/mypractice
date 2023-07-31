@@ -1,0 +1,34 @@
+input {
+    height: 35px;
+    width: 215px;
+    border-radius: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.pd-inline-block{
+    display: inline-block;
+}
+.label-wd {
+    width: 150px;
+    display: inline-block;
+}
+.pd-txt-area {
+    width: 250px;
+    height: 100px;
+}
+.center-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 20PX 0;
+}
+.m-top {
+    margin-top: 15px;
+}
+.pd-large-text {
+    width: 250px;
+    height: 100px;
+    overflow: auto;
+    border: 1px solid;
+}

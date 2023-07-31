@@ -35,8 +35,8 @@ export class HerolistComponent implements OnInit{
     }, 500);
   }
 
-  viewPlanetDetails(planetUrl: string){
+  viewPlanetDetails(planetUrl: string, type: string){
     this.heroService.planetUrl = planetUrl;
-    this.router.navigate(['heros/planetdetails'])
+    this.router.navigate(['heros/planetdetails'], {queryParams: {type:type }})
   }
 }

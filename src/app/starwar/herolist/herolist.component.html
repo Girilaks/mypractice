@@ -22,7 +22,8 @@
             <td>{{hero.mass}}</td>
             <td>{{hero.height}}</td>
             <td>
-                <span title="View [{{hero.name}}] planet details" (click)="viewPlanetDetails(hero.homeworld)" style="cursor: pointer;">{{hero.homeworld}}</span>
+                <span title="View [{{hero.name}}] planet details" (click)="viewPlanetDetails(hero.homeworld, 'view')" style="cursor: pointer;">{{hero.homeworld}}</span>
+                <button (click)="viewPlanetDetails(hero.homeworld, 'edit')">Edit</button>
             </td>
             <td>
                 <button style="display: flex; margin: auto;" (click)="editHero(hero)"> 
