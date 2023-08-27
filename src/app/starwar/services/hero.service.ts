@@ -17,8 +17,9 @@ export class HeroService {
 
   getSuperHeroList() : Observable<IHero[]> {
 
-    return this.http.get<IHero[]>('https://swapi.dev/api/people')
+    return this.http.get<any>('https://swapi.dev/api/people')
     .pipe(
+      map(res => res.results),
       catchError(this.errorHandler)
       )
   }

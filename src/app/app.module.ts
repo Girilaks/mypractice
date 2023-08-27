@@ -37,4 +37,11 @@ import { RegisterComponent } from './register/register.component';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+   // alert ("Call function when application bootstrap")
+  }
+  // ngDoBootstrap(){
+  //   alert ("Hello")
+  // }
+}

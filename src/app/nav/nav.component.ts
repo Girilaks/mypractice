@@ -20,5 +20,6 @@ export class NavComponent {
     localStorage.removeItem('user');
     this.authService.isAuthenticate$.next(false);
     this.router.navigateByUrl('/');
+    localStorage.removeItem('currentuser')
   }
 }

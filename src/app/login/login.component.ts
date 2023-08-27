@@ -27,6 +27,8 @@ export class LoginComponent {
   handleLogin() {
     if(this.loginForm) {
       this.router.navigateByUrl('/heros')
+      localStorage.setItem('currentuser', JSON.stringify(this.loginForm))
+      sessionStorage.setItem('currentuser_session', JSON.stringify(this.loginForm))
     }
 
     this.authService.isAuthenticate$.next(true);
